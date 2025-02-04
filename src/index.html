@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html style="width: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Connectify</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel = "icon" href = "top_logo.png" type = "image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+
+
+
+
+<body onload="scroll()" style="background-color: deepskyblue;">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBStWKajhGDkjSwv0XLuAwq9pwD8h303_M",
+        authDomain: "connectify-21b27.firebaseapp.com",
+        projectId: "connectify-21b27",
+        storageBucket: "connectify-21b27.appspot.com",
+        messagingSenderId: "904759692952",
+        appId: "1:904759692952:web:cdfab9ab7af6b055cbcaed",
+        storageBucket: 'connectify-21b27.appspot.com'
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+        
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="my_js.js"></script>
+    
+    <!----------------------------------------->
+    <!----------------------------------------->
+    <!----------------------------------------->
+    <!----------------------------------------->
+    <!-- HTML -->
+    <!----------------------------------------->
+    <!----------------------------------------->
+    <!----------------------------------------->
+
+
+    <div id="servers"></div>    
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid" style="width: 100%;">
+            <a href="index.html"><img src="logo.png" class="mobile"></a>
+            <p style="color: transparent;" class="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
+            <a href="new_server.html"><button class="btn btn-danger" style="float: right;">New Vault</button></a>
+            <a href="delete_server.html"><button class="btn btn-danger" style="float: right;">Delete Vault</button></a>
+            <a href="update.html"><button class="btn btn-danger" style="float: right;margin-right: 0%;">Update Username</button></a>
+            <button class="btn btn-danger" style="float: right;margin-right: 0.3%;" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+    <div id="messagelist" class="style-2 messages"></div>
+    <div style="background-color: burlywood;position: fixed;bottom: 0px;width: 100%;" id="msg_input">
+        <button class="btn btn-primary btn-lg" id="send_btn" onclick="submit()" style="float: right;margin: 1% 0.5% 1% 0.5%;">Send</button>
+        <img src="upload_img.png" style="width: 3vw; float: right; margin: 1% 0% 1% 0%;" id="button_input" alt="">
+        <input id='file_input' type='file' onchange="readURL(this);" hidden/>
+
+        <input type="text" id="message_input" class="input_msg">
+    </div>
+    <div style="text-align: center;margin-top: 20vh;" id="select_server_div">
+        <h1 id="select_server">Select a server from above to start chatting<br>OR<br>Make a new server from the "New Server" button above.</h1>
+    </div>
+    <div id="snackbar1">
+        <img src="" id="usr_img">
+        <button class="btn btn-danger" onclick="close_popover1()" style="bottom: 10px;right: 90px;position: absolute;">Cancel</button>
+        <button class="btn btn-success" onclick="upload_image()" style="bottom: 10px;right: 10px;position: absolute;">Send</button>
+    </div>
+    <div id="snackbar2">
+        <img src="" id="usr_img_1" style="width: 70%;">
+        <img src="close_button.png" onclick="close_popover2()" style="width: 5vw; float: right;">
+    </div>
+    <button class="btn btn-primary" id="del_btn" style="display: none;z-index: 2;">Delete</button>
+</body>
+
+</html>

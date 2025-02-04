@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Connectify-New User Registration</title>
+        <link rel = "icon" href = "top_logo.png" type = "image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <style>
+            @font-face{
+                font-family: custom_font;
+                src: url(custom_font.ttf);
+            }
+            #heading{
+                text-align: center;
+                margin-top: 1%;
+                font-family: custom_font;
+            }
+        </style>
+    </head>
+    <body style="background-color: turquoise;">
+        <h1 style="text-align: center;margin-top: 1%;" id="heading">Connectify New User Registration</h1>
+        <a href="login.html"><button class="btn btn-primary" style="float: right;margin-right: 10px;">Login</button></a>
+        <div style="margin: 2%;">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">User Name</label>
+                <input  class="form-control" id="input_username" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input  class="form-control" id="input_email" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              <div id="emailHelp" class="form-text">Enter a valid one since you will receive the verification link on it.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="input_password">
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit_btn" onclick="sign_in_button()">Submit</button>
+            <div id="emailHelp" class="form-text">After clicking Submit please wait for a while.</div>
+        </div>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBStWKajhGDkjSwv0XLuAwq9pwD8h303_M",
+            authDomain: "connectify-21b27.firebaseapp.com",
+            projectId: "connectify-21b27",
+            storageBucket: "connectify-21b27.appspot.com",
+            messagingSenderId: "904759692952",
+            appId: "1:904759692952:web:cdfab9ab7af6b055cbcaed"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        </script>
+        <script>
+            function sign_in_button(){
+                firebase.auth().createUserWithEmailAndPassword(document.getElementById('input_email').value, document.getElementById('input_password').value).then((user) => {
+                    // Signed in 
+                    current_user = firebase.auth().currentUser;
+                    current_user.updateProfile({
+                        displayName: document.getElementById('input_username').value
+                    })
+                    current_user.sendEmailVerification().then(function() {
+                        // Email sent.
+                        window.alert('A verification email containing a verification link has been sent to your email account. Please click on the link to verify.')
+                        location.href = 'login.html'
+                    }).catch(function(error) {
+                        // An error happened.
+                        window.alert(error)
+                    });
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    window.alert(error.message)
+                });
+                document.getElementById('input_email').value = ""
+                document.getElementById('input_password').value = ""
+            }
+        </script>
+    </body>
+</html>

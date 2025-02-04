@@ -1,0 +1,210 @@
+@font-face{
+    font-family: custom_font;
+    src: url(custom_font.ttf);
+}
+
+#select_server{
+    font-family: custom_font;
+}
+
+#heading{
+    text-align: center;
+    margin-top: 1%;
+    font-family: custom_font;
+}
+
+#messagelist{
+    display: none;
+}
+
+#msg_input{
+    display: none;
+}
+
+.message{
+    border-color: black;
+    margin: 1%;
+    width: fit-content;
+    clear: both;
+    padding: 0.5%;
+    background-color: springgreen;
+}
+
+.other-message{
+    float: left;
+    border-radius: 15px 15px 15px 0px;
+}
+
+.own-message{
+    float: right;
+    border-radius: 15px 15px 0px 15px;
+}
+
+.style-2::-webkit-scrollbar-track
+{
+	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+	border-radius: 10px;
+	background-color: transparent;
+}
+
+.style-2::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: transparent;
+}
+
+.style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3); */
+	background-color: white;
+}
+
+.dbs{
+    margin: 0.5% 1% 0.5% 1%;
+}
+
+.dont_show{
+    display: none;
+}
+
+.mobile{
+    width: 20vw;
+}
+
+.input_msg{
+    font-size:xx-large;
+    margin: 1%;
+    width: 88%;
+    float: left;
+    border: none;
+    border-radius: 6px;
+}
+
+.messages{
+    padding: 1%;
+    border-width: 2px;
+    border-color: black;
+    margin: 2%;
+    height: 65vh;
+    width: 97%;
+    overflow-y: scroll;
+}
+
+@media screen and (max-width: 500px){
+    .mobile{
+        width: 70vw;
+    }
+    .lorem{
+        display: none;
+    }
+    .dbs{
+        margin: 1% 2% 1% 2%;
+    }
+    .input_msg{
+        width: 70%;
+    }
+    .message{
+        padding: 2%;
+    }
+    .messages{
+        height: 63vh;
+    }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 500px){
+    .message{
+        padding: 1.5%;
+        font-size: 150%;
+    }
+    .mobile{
+        width: 50vw;
+    }
+    .lorem{
+        display: none;
+    }
+    .input_msg{
+        width: 85%;
+    }
+}
+
+@media screen and (max-height: 900px) and (min-height: 750px){
+    .messages{
+        height: 68vh;
+    }
+}
+
+@media screen and (max-height : 1500px) and (min-height: 1000px){
+    .messages{
+        height: 72vh;
+    }
+}
+
+@media screen and (max-height: 900px){
+    .messages{
+        height: 61vh;
+    }
+}
+
+
+#snackbar1 {
+    visibility: hidden;
+    min-width: 250px;
+    min-height: 90vh;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 2%;
+    right: 2%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar1.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar2 {
+    visibility: hidden;
+    min-width: 250px;
+    min-height: 90vh;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 2%;
+    right: 2%;
+    bottom: 30px;
+    font-size: 17px;
+}
+    
+#snackbar2.show {
+visibility: visible;
+-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+
+@-webkit-keyframes fadein {
+from {bottom: 0; opacity: 0;} 
+to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+from {bottom: 0; opacity: 0;}
+to {bottom: 30px; opacity: 1;}
+}
+
+.img_message{
+    width: 100%;
+}
